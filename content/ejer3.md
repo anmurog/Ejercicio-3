@@ -1,4 +1,4 @@
-Title: Mi primer artículo
+Title: Prueba
 Date: 2026-02-11 10:00
 Category: Blog
 Author: Angel

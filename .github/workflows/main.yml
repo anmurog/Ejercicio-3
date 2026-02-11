@@ -1,9 +1,5 @@
-Aquí tienes el código "seguro" que no falla.
-
-Recuerda: cuando estés editando el archivo (en el icono del lápiz ✏️), borra todo lo que haya escrito y pega esto encima:
-
-YAML
 name: Deploy Pelican Site
+
 on:
   push:
     branches: ["main"]
@@ -21,14 +17,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+
       - name: Install Pelican
         run: pip install pelican markdown
+
       - name: Build site
         run: pelican content -o output -s pelicanconf.py
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
